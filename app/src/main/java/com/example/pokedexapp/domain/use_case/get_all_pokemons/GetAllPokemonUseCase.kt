@@ -1,7 +1,6 @@
 package com.example.pokedexapp.domain.use_case.get_all_pokemons
 
-import com.example.pokedexapp.data.remote.dto.toPokemonList
-import com.example.pokedexapp.domain.model.PokemonList
+import com.example.pokedexapp.data.remote.dto.PokemonListDto
 import com.example.pokedexapp.domain.repository.PokemonRepository
 import com.example.pokedexapp.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -13,12 +12,12 @@ import javax.inject.Inject
 class GetAllPokemonUseCase @Inject constructor(
     private val repository: PokemonRepository
 ) {
-    operator fun invoke(offset: Int, limit: Int): Flow<Resource<PokemonList>> = flow {
+    operator fun invoke(offset: Int, limit: Int): Flow<Resource<PokemonListDto>> = flow {
 
         try {
 
             emit(Resource.Loading())
-            val allPokemon = repository.getPokemonList(offset, limit).toPokemonList()
+            val allPokemon = repository.getPokemonList(offset, limit)
             emit(Resource.Success(allPokemon))
 
         }
