@@ -94,10 +94,10 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
     // Retrofit with Kotlin serialization Converter
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    // Kotlin serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+//    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+//    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+//    // Kotlin serialization
+//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     // Timber
     implementation ("com.jakewharton.timber:timber:4.7.1")

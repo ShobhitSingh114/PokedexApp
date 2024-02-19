@@ -1,4 +1,4 @@
-package com.example.pokedexapp.ui.theme
+package com.example.pokedexapp.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
