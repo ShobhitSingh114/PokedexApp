@@ -103,8 +103,7 @@ dependencies {
     implementation ("com.jakewharton.timber:timber:4.7.1")
 
     // Coil
-    implementation ("io.coil-kt:coil:2.4.0")
-    implementation ("com.google.accompanist:accompanist-coil:0.7.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     // Pallet
     implementation ("androidx.palette:palette-ktx:1.0.0")

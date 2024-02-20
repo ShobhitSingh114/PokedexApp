@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.pokedexapp.R
+import com.example.pokedexapp.presentation.pokemon_list.components.PokemonList
 import com.example.pokedexapp.presentation.pokemon_list.components.SearchBar
 
 @Composable
@@ -29,9 +30,7 @@ fun PokemonListScreen(
         modifier = Modifier.fillMaxSize()
     ) {
         Column {
-
             Spacer(modifier = Modifier.height(20.dp))
-
             Image(
                 painter = painterResource(id = R.drawable.ic_international_pok_mon_logo),
                 contentDescription = "Pokemon Logo",
@@ -39,17 +38,16 @@ fun PokemonListScreen(
                     .fillMaxWidth()
                     .align(Alignment.CenterHorizontally)
             )
-
             SearchBar(
                 hint = "Search...",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-
+                viewModel.searchPokemonList(it)
             }
-
-
+            Spacer(modifier = Modifier.height(16.dp))
+            PokemonList(navController = navController)
         }
     }
 }

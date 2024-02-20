@@ -1,6 +1,5 @@
 package com.example.pokedexapp.data.remote.dto
 
-import com.example.pokedexapp.domain.model.PokemonDetail
 import com.google.gson.annotations.SerializedName
 
 data class PokemonDetailDto(
@@ -33,15 +32,15 @@ data class PokemonDetailDto(
     val weight: Int
 )
 
-fun PokemonDetailDto.toPokmonDetail(): PokemonDetail {
-    return PokemonDetail(
-//        image = ,
-        name = name,
-        id = id,
-        height = height,
-        weight = weight,
-        type = types.map { it.type.name },
-        baseStat = stats.map { it.baseStat },
-        statName = stats.map { it.stat.name }
-    )
-}
+//fun PokemonDetailDto.toPokmonDetail(): PokemonDetail {
+//    return PokemonDetail(
+////        image = ,
+//        name = name,
+//        id = id,
+//        height = height,
+//        weight = weight,
+//        type = types.map { it.type.name },
+//        baseStat = stats.map { it.baseStat },
+//        statName = stats.map { it.stat.name }
+//    )
+//}
