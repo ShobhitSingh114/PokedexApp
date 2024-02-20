@@ -77,7 +77,7 @@ class PokemonListViewModel @Inject constructor(
 
     fun loadPokemonPaginated() {
 //        getAllPokemonUseCase(PAGE_SIZE, curPage * PAGE_SIZE).onEach { result ->
-        getAllPokemonUseCase(curPage * PAGE_SIZE, PAGE_SIZE ).onEach { result ->
+        getAllPokemonUseCase(offset = curPage * PAGE_SIZE, limit = PAGE_SIZE ).onEach { result ->
             when(result) {
                 is Resource.Success -> {
                     // meaning is currently loading more entries then result data actually contains
@@ -103,6 +103,7 @@ class PokemonListViewModel @Inject constructor(
                     _state.value = PokemonListState(
 //                        pokemonList = _state.value.pokemonList + pokedexEntries
 //                        pokemonList = pokemonList.value + pokedexEntries
+                        pokemonList = pokemonList.value
                     )
                 }
                 is Resource.Error -> {

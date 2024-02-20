@@ -16,9 +16,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.pokedexapp.presentation.pokemon_detail.PokemonDetailScreen
 import com.example.pokedexapp.presentation.pokemon_list.PokemonListScreen
 import com.example.pokedexapp.presentation.ui.theme.PokedexAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -41,23 +43,29 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(
                             route = Screen.PokemonDetailScreen.route + "/{dominantColor}/{name}"
-//                            ,
-//                            arguments = listOf(
-//                                navArgument("dominantColor") {
-//                                    type = NavType.IntType
-//                                },
-//                                navArgument("pokemonName") {
-//                                    type = NavType.StringType
-//                                }
-//                            )
+                            ,
+                            arguments = listOf(
+                                navArgument("dominantColor") {
+                                    type = NavType.IntType
+                                },
+                                navArgument("pokemonName") {
+                                    type = NavType.StringType
+                                }
+                            )
                         ) {
-//                            val dominantColor = remember {
-//                                val color = it.arguments?.getInt("dominantColor")
-//                                color?.let { Color(it) } ?: Color.White
-//                            }
-//                            val pokemonName = remember {
-//                                it.arguments?.getString("pokemonName")
-//                            }
+
+                            val dominantColor = remember {
+                                val color = it.arguments?.getInt("dominantColor")
+                                color?.let { Color(it) } ?: Color.White
+                            }
+                            val pokemonName = remember {
+                                it.arguments?.getString("pokemonName")
+                            }
+                            PokemonDetailScreen(
+                                dominantColor = dominantColor,
+                                pokemonName = pokemonName?.lowercase(Locale.ROOT) ?: "",
+                                navController = navController
+                            )
 
                         }
                     }
